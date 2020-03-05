@@ -18,6 +18,9 @@ jobs:
 
     if: "! contains(github.event.head_commit.message, '[ci skip]') && ! contains(github.event.head_commit.message, '[skip ci]')"
 
+    strategy:
+      matrix:
+        pkg: [ "example/coffee", "example/train", "package/inject", "package/inject_generator" ]
     steps:
       - uses: actions/checkout@v2
       #- name: install dart
@@ -29,19 +32,7 @@ jobs:
       #    sudo apt-get update
       #    sudo apt-get install dart -y
       #    /usr/lib/dart/bin/dart --version
-      - name: coffee
+      - name: presubmit
         run: ./tool/travis.sh analyze
         env:
-          PKG: "example/coffee"
-      - name: train
-        run: ./tool/travis.sh analyze
-        env:
-          PKG: "example/train"
-      - name: inject
-        run: ./tool/travis.sh analyze
-        env:
-          PKG: "package/inject"
-      - name: inject_generator
-        run: ./tool/travis.sh analyze
-        env:
-          PKG: "package/inject_generator"
+          PKG: ${{ matrix.pkg }}
