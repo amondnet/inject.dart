@@ -1,7 +1,7 @@
 # `package:inject`
 
-[![Build Status](https://travis-ci.org/google/inject.dart.svg?branch=master)](https://travis-ci.org/google/inject.dart)
-
+[![Build Status](https://travis-ci.org/amondnet/inject.dart.svg?branch=master)](https://travis-ci.org/google/inject.dart)
+![test](https://github.com/amondnet/inject.dart/workflows/test/badge.svg?branch=master)
 Compile-time dependency injection for Dart and Flutter, similar to [Dagger][].
 
 [Dagger]: https://google.github.io/dagger/
